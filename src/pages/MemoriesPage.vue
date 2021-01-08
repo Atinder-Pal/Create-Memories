@@ -2,13 +2,18 @@
     <base-layout page-title="All Memories">
             <ion-list>
                 <ion-item v-for="memory in memories" :router-link="`/memories/${memory.id}`" :key="memory.id">
-                    {{memory.title}}
+                    <ion-label>
+                        {{memory.title}}
+                    </ion-label>
+                    <ion-thumbnail slot="start">
+                        <ion-img :src="memory.image" :alt="memory.title"></ion-img>
+                    </ion-thumbnail>                    
                 </ion-item>
             </ion-list>
     </base-layout>
 </template>
 <script>
-import {IonList, IonItem} from '@ionic/vue';
+import {IonList, IonItem, IonImg, IonThumbnail, IonLabel} from '@ionic/vue';
 
 
 export default {
@@ -37,7 +42,10 @@ export default {
     },
     components: {      
        IonList,
-       IonItem       
+       IonItem,
+       IonImg,
+       IonThumbnail,
+       IonLabel    
     }
 }
 </script>
