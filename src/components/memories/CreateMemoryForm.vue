@@ -15,6 +15,13 @@
                 Take Photo
             </ion-button>
       </ion-item>
+
+      <ion-item>      
+        <ion-button type="button" fill= "clear" @click="takeVideo">
+            <ion-icon :icon="camera"></ion-icon>
+            Take Video
+        </ion-button>
+      </ion-item>
     
       <ion-item>
         <ion-label position="floating">Description</ion-label>
@@ -38,6 +45,7 @@ import {
 } from "@ionic/vue";
 import{ camera } from 'ionicons/icons';
 import { Plugins, CameraResultType, CameraSource } from '@capacitor/core';
+import {VideoCapturePlus} from '@ionic-native/video-capture-plus';
 const {Camera} = Plugins;
 
 export default {
@@ -77,6 +85,18 @@ export default {
               quality: 60
           });
           this.takenImageUrl = photo.webPath;
+      },
+       async takeVideo() {
+           try{
+               let options = {
+               limit: 1,
+               duration: 30
+           }
+          let video = await VideoCapturePlus.captureVideo(options);
+          console.log(video);
+           } catch(error) {
+               console.log(error);
+           }          
       }
   }
 };
