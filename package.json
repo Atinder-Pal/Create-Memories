@@ -10,9 +10,14 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@capacitor/android": "^2.4.5",
     "@capacitor/core": "2.4.5",
+    "@ionic-native/core": "^5.30.0",
+    "@ionic-native/video-capture-plus": "^5.30.0",
+    "@ionic/pwa-elements": "^3.0.2",
     "@ionic/vue": "^5.4.0",
     "@ionic/vue-router": "^5.4.0",
+    "cordova-plugin-video-capture-plus": "^1.0.0",
     "core-js": "^3.6.5",
     "vue": "^3.0.0-0",
     "vue-router": "^4.0.0-0",
